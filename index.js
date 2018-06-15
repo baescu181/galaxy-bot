@@ -109,16 +109,6 @@ bot.on('guildMemberAdd', guildMember =>{
             }
             message.channel.send({embed: embed})
             break;
-        case "autorole":
-            if (!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send('Nu ai acces la aceasta comanda !')
-            if (!args.join(" ")) return message.channel.send('Te rog spune un rol valid. `setautorole <numerol>`')
-
-            db.updateText(`autoRole_${message.guild.id}`, args.join(" ").trim()).then(i => {
-
-                message.channel.send('Auto-Role setat pe gradul: `'+ i.text +'`')
-
-            });
-            break;
         case "invite":
             var embed = new Discord.RichEmbed()
                 .setTitle("Link")
